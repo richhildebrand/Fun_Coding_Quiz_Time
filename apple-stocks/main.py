@@ -9,10 +9,3 @@ def get_max_profit(arrayOfPrices):
         if (item < min): min = item
 
     return max - min
-
-
-
-stock_prices_yesterday = [10, 7, 5, 8, 11, 9]
-result = get_max_profit(stock_prices_yesterday)
-print(result)
-# Returns 6 (buying for $5 and selling for $11)
