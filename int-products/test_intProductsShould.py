@@ -1,5 +1,5 @@
 import sys
-sys.path.append('../testHelpers/')
+sys.path.append('../testHelpers')
 import testHelpers.assertHelpers as assertHelpers
 import unittest as unittest
 
