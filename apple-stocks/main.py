@@ -1,5 +1,7 @@
+import sys as sys
+
 def get_max_profit(arrayOfPrices):
-    maxProfit = 0
+    maxProfit = -sys.maxsize - 1
 
     currentMin = arrayOfPrices[0]
     length = len(arrayOfPrices)

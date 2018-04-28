@@ -23,5 +23,15 @@ class OurTests(unittest.TestCase):
         result = main.get_max_profit(stock_prices_yesterday)
         assert result == 20
 
+    def test_SamePrice(self):
+        stock_prices_yesterday = [10, 10, 10, 10]
+        result = main.get_max_profit(stock_prices_yesterday)
+        assert result == 0
+
+    def test_DecendingPrice(self):
+        stock_prices_yesterday = [10, 8, 7, 3]
+        result = main.get_max_profit(stock_prices_yesterday)
+        assert result == -1
+
 if __name__ == '__main__':
     unittest.main()
