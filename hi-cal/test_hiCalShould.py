@@ -1,5 +1,5 @@
-import unittest as unittest
-import main as main
+import unittest
+import main
 
 
 class HiCalShould(unittest.TestCase):
@@ -10,7 +10,6 @@ class HiCalShould(unittest.TestCase):
         
         expectedResult = [(0, 1), (3, 8), (9, 12)]
         self.assertSequenceEqual(result, expectedResult)
-
 
 
 if __name__ == '__main__':
