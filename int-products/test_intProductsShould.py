@@ -11,9 +11,12 @@ class IntProductsShould(unittest.TestCase):
         result = [84, 12, 28, 21]
         assert assertHelpers.sequenceEqual(result, result)
 
-    def test_sequenceEqual_with_different_sequence(self):
-        isTrue = main.returnTrue()
-        assert isTrue
+    def test_returnProducts(self):
+        input = [1, 7, 3, 4]
+        output = main.get_products_of_all_ints_except_at_index(input)
+
+        expectedOutput = [84, 12, 28, 21]
+        assert assertHelpers.sequenceEqual(output, expectedOutput)
 
 if __name__ == '__main__':
     unittest.main()
