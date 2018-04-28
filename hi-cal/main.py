@@ -1,2 +1,2 @@
-def returnTrue():
-    return True
+def merge_ranges(meetings):
+    return []
