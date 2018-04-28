@@ -7,10 +7,7 @@ def get_max_profit(arrayOfPrices):
         value = arrayOfPrices[index]
 
         difference = value - currentMin
-        if difference > maxProfit:
-            maxProfit = difference
-
-        if currentMin > value: 
-            currentMin = value
+        maxProfit = max(maxProfit, difference)
+        currentMin = min(currentMin, value)
 
     return maxProfit
