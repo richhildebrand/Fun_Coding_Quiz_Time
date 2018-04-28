@@ -1,16 +1,16 @@
 def get_max_profit(arrayOfPrices):
     maxProfit = 0
 
+    currentMin = arrayOfPrices[0]
     length = len(arrayOfPrices)
-    for outerIndex in range(0, length):
-        outerValue = arrayOfPrices[outerIndex]
-        innerStart = outerIndex + 1
+    for index in range(1, length):
+        value = arrayOfPrices[index]
 
-        for innerIndex in range(innerStart , length):
-            innerValue = arrayOfPrices[innerIndex]
+        difference = value - currentMin
+        if difference > maxProfit:
+            maxProfit = difference
 
-            difference = innerValue - outerValue
-            if (difference > maxProfit): 
-                maxProfit = difference
+        if currentMin > value: 
+            currentMin = value
 
     return maxProfit
