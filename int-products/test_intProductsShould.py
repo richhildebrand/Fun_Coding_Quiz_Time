@@ -6,11 +6,6 @@ import main as main
 
 
 class IntProductsShould(unittest.TestCase):
-
-    def test_sequenceEqual_with_same_arry(self):
-        result = [84, 12, 28, 21]
-        assert assertHelpers.sequenceEqual(result, result)
-
     def test_returnProducts(self):
         input = [1, 7, 3, 4]
         output = main.get_products_of_all_ints_except_at_index(input)
