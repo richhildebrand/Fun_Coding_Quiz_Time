@@ -1,24 +1,30 @@
 def calculateHighestProduct(numbers):
     numberOfNumbers = len(numbers)
-    max1 = 0
-    max2 = 0
-    max3 = 0
+    if numberOfNumbers < 3: raise("Must provide at least three numbers")
 
-    for index in range(0, numberOfNumbers):
-        number = numbers[index]
-        if number > max3:
-            max1 = max2 
-            max2 = max3
-            max3 = number
-        elif number > max2:
-            max1 = max2
-            max2 = number
-        elif number > max1:
-            max2 = number
+    highest = max(numbers[0], numbers[1])
+    lowest = min(numbers[0], numbers[1])
 
-    maxAll = max1 * max2 * max3
-    max12 = max1 * max2
-    max13 = max1 * max3
-    max23 = max2 * max3
+    highestProductOf3 = numbers[0] * numbers[1]
+    highestProductOf2 = highestProductOf3
+    lowestProductOf2 = highestProductOf3
 
-    return max(maxAll, max12, max13, max23)
+    for index in range(2, numberOfNumbers):
+        newNumber = numbers[index]
+
+        newHighest3 = highestProductOf2 * newNumber
+        highestProductOf3 = max(newHighest3, highestProductOf3)
+
+        newLowest3 = lowestProductOf2 * newNumber
+        highestProductOf3 = max(newLowest3, highestProductOf3)
+
+        newHighest2 = max(newNumber*lowest, newNumber*highest)
+        highestProductOf2 = max(newHighest2, highestProductOf2)
+
+        newLowest2 = min(newNumber*lowest, newNumber*highest)
+        lowestProductOf2 = min(newLowest2, lowestProductOf2)
+
+        lowest = min(newNumber, lowest)
+        highest = max(newNumber, highest)
+
+    return max(highestProductOf2, highestProductOf3)

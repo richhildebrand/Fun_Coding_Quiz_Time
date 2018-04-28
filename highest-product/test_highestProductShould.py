@@ -8,6 +8,11 @@ class HighestProductShould(unittest.TestCase):
         product = main.calculateHighestProduct(input)
         assert product == 6
 
+    def test_workWithTwoNegativeNumbers(self):
+        input = [1, 10, -5, 1, -100]
+        product = main.calculateHighestProduct(input)
+        assert product == 5000
+
     def test_workWithFiveNumbers(self):
         input = [5, 3, 10, 2, 1]
         product = main.calculateHighestProduct(input)
