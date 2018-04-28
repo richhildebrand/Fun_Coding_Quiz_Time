@@ -4,12 +4,13 @@ def merge_ranges(meetings):
 
     busyDuring = []
     busyDuring.append(meetings[0])
-    for index in range(0, numberOfMeetings-1):
+    for index in range(0, numberOfMeetings-1): #costs O(n)
         currentStartTime = meetings[index][0]
         currentEndTime = meetings[index][1]
 
-        nextStartTime = meetings[index+1][0]
-        nextEndTime = meetings[index+1][1]
+        nextIndex = index + 1
+        nextStartTime = meetings[nextIndex][0]
+        nextEndTime = meetings[nextIndex][1]
 
         canBeMerged = False
         if currentStartTime <= nextStartTime <= currentEndTime: canBeMerged = True
@@ -23,6 +24,6 @@ def merge_ranges(meetings):
             lastIndex = len(busyDuring) - 1
             busyDuring[lastIndex] = newTupple
         else:
-            busyDuring.append(meetings[index+1])
+            busyDuring.append(meetings[nextIndex])
     
     return busyDuring
