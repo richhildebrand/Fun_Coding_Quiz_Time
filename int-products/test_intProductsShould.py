@@ -13,5 +13,12 @@ class IntProductsShould(unittest.TestCase):
         expectedOutput = [84, 12, 28, 21]
         assert assertHelpers.sequenceEqual(output, expectedOutput)
 
+    def test_allowZeros(self):
+        input = [1, 0, 3, 4]
+        output = main.get_products_of_all_ints_except_at_index(input)
+
+        expectedOutput = [0, 12, 0, 0]
+        assert assertHelpers.sequenceEqual(output, expectedOutput)
+
 if __name__ == '__main__':
     unittest.main()
