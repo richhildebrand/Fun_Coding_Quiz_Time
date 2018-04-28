@@ -9,12 +9,9 @@ def get_products_of_all_ints_except_at_index(arrayOfInts):
         rollingProduct = rollingProduct * arrayOfInts[index]
 
     rollingProduct = 1
-    productsAfterIndex = [None] * numberOfInts
+    products = [None] * numberOfInts
     for index in range(numberOfInts -1, -1, -1):
-        productsAfterIndex[index] = rollingProduct
+        products[index] = rollingProduct * productsBeforeIndex[index]
         rollingProduct = rollingProduct * arrayOfInts[index]
-
-    for index in range(0, numberOfInts):
-        products[index] = productsBeforeIndex[index] * productsAfterIndex[index]
 
     return products
