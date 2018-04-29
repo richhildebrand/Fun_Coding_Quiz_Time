@@ -1,0 +1,2 @@
+def gettingStarted():
+    return True
