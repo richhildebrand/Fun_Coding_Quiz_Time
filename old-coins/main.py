@@ -1,2 +1,2 @@
-def gettingStarted():
-    return True
+def numberOfCombos(amount, denominations):
+    return 0
