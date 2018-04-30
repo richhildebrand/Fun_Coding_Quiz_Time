@@ -43,5 +43,6 @@ class OurTests(unittest.TestCase):
         result = main.get_max_profit(stock_prices_yesterday)
         self.assertEquals(result, -7)
 
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)
