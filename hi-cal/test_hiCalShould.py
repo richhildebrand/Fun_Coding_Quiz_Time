@@ -1,5 +1,5 @@
 import unittest
-import main
+import round2 as main
 
 
 class HiCalShould(unittest.TestCase):
