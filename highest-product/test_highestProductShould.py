@@ -1,5 +1,5 @@
 import unittest as unittest
-import main as main
+import round2 as main
 
 
 class HighestProductShould(unittest.TestCase):
