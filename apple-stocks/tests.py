@@ -33,5 +33,15 @@ class OurTests(unittest.TestCase):
         result = main.get_max_profit(stock_prices_yesterday)
         self.assertEquals(result, -1)
 
+    def test_ZeroPrices(self):
+        stock_prices_yesterday = []
+        result = main.get_max_profit(stock_prices_yesterday)
+        self.assertEquals(result, 0)
+
+    def test_OnePrice(self):
+        stock_prices_yesterday = [7]
+        result = main.get_max_profit(stock_prices_yesterday)
+        self.assertEquals(result, -7)
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)
