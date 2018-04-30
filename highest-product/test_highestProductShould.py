@@ -6,32 +6,36 @@ class HighestProductShould(unittest.TestCase):
     def test_returnProductOfThreeNumbers(self):
         input = [1, 2, 3]
         product = main.calculateHighestProduct(input)
-        assert product == 6
+        self.assertEquals(product, 6)
 
     def test_workWithTwoNegativeNumbers(self):
         input = [1, 10, -5, 1, -100]
         product = main.calculateHighestProduct(input)
-        assert product == 5000
+        self.assertEquals(product, 5000)
 
     def test_workWithFiveNumbers(self):
         input = [5, 3, 10, 2, 1]
         product = main.calculateHighestProduct(input)
-        assert product == 150
+        self.assertEquals(product, 150)
 
     def test_firstNumberIsZero(self):
         input = [0, 3, 10]
         product = main.calculateHighestProduct(input)
-        assert product == 30
+        self.assertEquals(product, 30)
 
     def test_secondNumberIsZero(self):
         input = [5, 0, 10]
         product = main.calculateHighestProduct(input)
-        assert product == 50
+        self.assertEquals(product, 50)
 
     def test_lastNumberIsZero(self):
         input = [5, 1, 0]
         product = main.calculateHighestProduct(input)
-        assert product == 5
+        self.assertEquals(product, 5)
+
+    def test_throwWithLessThanTwo(self):
+        input = [5]
+        with self.assertRaises(Exception): main.calculateHighestProduct(input)
 
 
 if __name__ == '__main__':
