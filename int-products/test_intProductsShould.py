@@ -1,8 +1,5 @@
-import sys
-sys.path.append('../testHelpers')
-import testHelpers.assertHelpers as assertHelpers
 import unittest as unittest
-import main as main
+import round2 as main
 
 
 class IntProductsShould(unittest.TestCase):
@@ -11,14 +8,15 @@ class IntProductsShould(unittest.TestCase):
         output = main.get_products_of_all_ints_except_at_index(input)
 
         expectedOutput = [84, 12, 28, 21]
-        assert assertHelpers.sequenceEqual(output, expectedOutput)
+        self.assertSequenceEqual(output, expectedOutput)
 
     def test_allowZeros(self):
         input = [1, 0, 3, 4]
         output = main.get_products_of_all_ints_except_at_index(input)
 
         expectedOutput = [0, 12, 0, 0]
-        assert assertHelpers.sequenceEqual(output, expectedOutput)
+        self.assertSequenceEqual(output, expectedOutput)
+
 
 if __name__ == '__main__':
     unittest.main()
