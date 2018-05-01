@@ -17,6 +17,11 @@ class IntProductsShould(unittest.TestCase):
         expectedOutput = [0, 12, 0, 0]
         self.assertSequenceEqual(output, expectedOutput)
 
+    def test_ensureAtLeastThreeNumber_SoWeCanMultiplyTwo(self):
+        input = [1, 0]
+        with self.assertRaises(Exception):
+            main.get_products_of_all_ints_except_at_index(input)
+
 
 if __name__ == '__main__':
     unittest.main()
