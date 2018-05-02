@@ -1,2 +1,2 @@
-def gettingStarted():
+def findIntersection(rectangleOne, rectangleTwo):
     return True

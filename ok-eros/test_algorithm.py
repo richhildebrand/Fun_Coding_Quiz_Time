@@ -3,9 +3,25 @@ import main
 
 
 class AlgorithmShould(unittest.TestCase):
-    def test_smoke(self):
-        result = main.gettingStarted()
-        self.assertTrue(result)
+    def test_findIntesection(self):
+        rectangleOne = self.makeRectangle(1, 1, 6, 3)
+        rectangleTwo = self.makeRectangle(5, 2, 3, 6)
+
+        result = main.findIntersection(rectangleOne, rectangleTwo)
+
+        expectedRectangle = self.makeRectangle(5, 2, 2, 2)
+        self.assertDictEqual(result, expectedRectangle)
+
+    def makeRectangle(self, x, y, width, height):
+        return {
+            # Coordinates of bottom-left corner
+            'left_x'   : x,
+            'bottom_y' : y,
+
+            # Width and height
+            'width'    : width,
+            'height'   : height,
+        }
 
 
 if __name__ == '__main__':
