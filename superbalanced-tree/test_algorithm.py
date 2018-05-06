@@ -38,7 +38,7 @@ class AlgorithmShould(unittest.TestCase):
         left1.insert_left(2)
         left3 = left2.insert_right(3)
         left4 = left3.insert_right(4)
-        left5 = left4.insert_left(4)
+        left4.insert_left(4)
 
         right1 = trunk.insert_right(1)
         right2 = right1.insert_left(2)

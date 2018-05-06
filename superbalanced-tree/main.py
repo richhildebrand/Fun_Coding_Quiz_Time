@@ -1,23 +1,34 @@
-def traverseBranch(node, currentDepth, maxDepth): 
-    currentDepth += 1
-    maxDepth = max(currentDepth, maxDepth)
-    if (node.left != None):
-        leftDepth = traverseBranch(node.left, currentDepth, maxDepth)
-        maxDepth = max(leftDepth, maxDepth)
-    if (node.right != None):
-        rightDepth = traverseBranch(node.right, currentDepth, maxDepth)
-        maxDepth = max(rightDepth, maxDepth)
+def allowableDistanceExceeded(depths):
+    leftDepth = depths[0]
+    rightDepth = depths[1]
 
-    return maxDepth
+    return abs(leftDepth - rightDepth) > 1
 
 def isSuperBalanced(tree):
-    leftDepth = traverseBranch(tree.left, 0, 0)
-    print('leftDepth:' + str(leftDepth))
-    rightDepth = traverseBranch(tree.right, 0, 0)
-    print('rightDepth:' + str(rightDepth))
+    depths  = []
+    nodes = []
+    nodes.append((tree, 0))
 
-    return abs(leftDepth - rightDepth) <= 1
+    while len(nodes):
+        node, depth = nodes.pop()
 
+        hasLeaf = node.left or node.right
+        if not hasLeaf: #is leaf
+            if depth not in depths:
+                depths.append(depth)
+
+            numberOfDepths = len(depths)
+            tooManyDepths = numberOfDepths > 2
+            canShortCut = numberOfDepths == 2 and allowableDistanceExceeded(depths)
+            if tooManyDepths or canShortCut:
+                return False
+        else: #not leaf
+            if node.left:
+                nodes.append((node.left, depth + 1))
+            if node.right:
+                nodes.append((node.right, depth + 1))
+
+    return True
 
 class BinaryTreeNode(object):
 
