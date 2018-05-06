@@ -31,6 +31,25 @@ class AlgorithmShould(unittest.TestCase):
         isSuperBalanced = main.isSuperBalanced(trunk)
         self.assertTrue(isSuperBalanced)
 
+    def test_six_toSix(self):
+        trunk = main.BinaryTreeNode(0)
+        left1 = trunk.insert_left(1)
+        left2 = left1.insert_left(2)
+        left3 = left2.insert_left(3)
+        left4 = left3.insert_left(4)
+        left5 = left4.insert_left(5)
+        left5.insert_left(6)
+
+        right1 = trunk.insert_right(1)
+        right2 = right1.insert_left(2)
+        right3 = right2.insert_left(3)
+        right4 = right3.insert_left(4)
+        right5 = right4.insert_left(5)
+        right5.insert_left(6)
+
+        isSuperBalanced = main.isSuperBalanced(trunk)
+        self.assertTrue(isSuperBalanced)
+
     def test_five_toThree(self):
         trunk = main.BinaryTreeNode(0)
         left1 = trunk.insert_left(1)
