@@ -2,7 +2,7 @@
 
 Here's a sample binary tree node class:
 
-	class BinaryTreeNode(object):
+    class BinaryTreeNode(object):
 
         def __init__(self, value):
             self.value = value

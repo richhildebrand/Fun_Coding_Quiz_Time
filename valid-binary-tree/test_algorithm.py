@@ -1,10 +1,11 @@
 import unittest
-import main
+import main as main
 
 
 class AlgorithmShould(unittest.TestCase):
     def test_smoke(self):
-        result = main.gettingStarted()
+        root = main.BinaryTreeNode(0)
+        result = main.isValidBinarySearchTree(root)
         self.assertTrue(result)
 
 
