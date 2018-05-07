@@ -1,4 +1,15 @@
 def isValidBinarySearchTree(root):
+    nodes = [root]
+    while len(nodes):
+        parent = nodes.pop()
+
+        if parent.left:
+            if parent.left.value >= parent.value: return False
+            else: nodes.append(parent.left)
+        if parent.right:
+            if parent.right.value <= parent.value: return False
+            else: nodes.append(parent.right)
+
     return True
 
 

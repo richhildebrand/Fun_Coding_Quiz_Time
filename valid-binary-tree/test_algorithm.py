@@ -23,6 +23,21 @@ class AlgorithmShould(unittest.TestCase):
 
         self.assertTrue(result)
 
+    def test_findInValidTree(self):
+        root = main.BinaryTreeNode(10)
+        left1 = root.insert_left(5)
+        left1.insert_left(1)
+        left1.insert_right(7)
+
+        right1 = root.insert_right(15)
+        right1.insert_left(12)
+        right2 = right1.insert_right(20)
+        right2.insert_left(22)
+
+        result = main.isValidBinarySearchTree(root)
+
+        self.assertFalse(result)
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
