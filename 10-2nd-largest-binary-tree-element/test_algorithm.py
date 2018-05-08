@@ -21,6 +21,20 @@ class AlgorithmShould(unittest.TestCase):
         result = main.findSecondLargestElement(root)
         self.assertEquals(result, 9)
 
+    def test_findWithOnly_OneLeftLeaf(self):
+        root = main.BinaryTreeNode(1)
+        root.insert_left(0)
+
+        result = main.findSecondLargestElement(root)
+        self.assertEqual(result, 0)
+
+    def test_findWithOnly_OneRightLeaf(self):
+        root = main.BinaryTreeNode(1)
+        root.insert_right(2)
+
+        result = main.findSecondLargestElement(root)
+        self.assertEqual(result, 1)
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
