@@ -1,15 +1,17 @@
-def findSecondLargestElement(root):
-    keepLooking = True
-    secondHighestValue = None
-    currentNode = root
-    while keepLooking:
+import sys
 
-        if currentNode.right:
-            keepLooking = True
+def findSecondLargestElement(root):
+    highestValue = -sys.maxsize-1
+    secondHighestValue = -sys.maxsize-1
+    currentNode = root
+    while currentNode:
+        if currentNode.value >= highestValue:
+            secondHighestValue = highestValue
+            highestValue = currentNode.value
+        elif currentNode.value > secondHighestValue:
             secondHighestValue = currentNode.value
-            currentNode = currentNode.right
-            continue
-        else: keepLooking = False
+
+        currentNode = currentNode.right or currentNode.left
 
     return secondHighestValue
 
