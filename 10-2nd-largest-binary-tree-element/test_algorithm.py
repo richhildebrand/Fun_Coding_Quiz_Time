@@ -40,6 +40,16 @@ class AlgorithmShould(unittest.TestCase):
         result = main.findSecondLargestElement(root)
         self.assertEquals(result, 9)
 
+    def test_findWith_secondHighest_onRightLeaf(self):
+        root = main.BinaryTreeNode(15)
+        left1 = root.insert_left(8)
+        left1.insert_right(10)
+        left2 = left1.insert_left(6)
+        left2.insert_left(5)
+
+        result = main.findSecondLargestElement(root)
+        self.assertEquals(result, 10)
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
