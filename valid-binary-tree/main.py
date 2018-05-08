@@ -1,14 +1,28 @@
-def isValidBinarySearchTree(root):
-    nodes = [root]
-    while len(nodes):
-        parent = nodes.pop()
+import sys
 
-        if parent.left:
-            if parent.left.value >= parent.value: return False
-            else: nodes.append(parent.left)
-        if parent.right:
-            if parent.right.value <= parent.value: return False
-            else: nodes.append(parent.right)
+def isValidBinarySearchTree(root):
+    nodeContainers = [{ 'node': root, 'min': -sys.maxsize-1, 'max': sys.maxsize }]
+    while len(nodeContainers):
+        nodeContainer = nodeContainers.pop()
+        node = nodeContainer['node']
+
+        print('value:' + str(node.value) + '   min:'+ str(nodeContainer['min']) + '   max:' + str(nodeContainer['max']))
+        if node.left:
+            if node.left.value >= node.value \
+            or node.left.value >= nodeContainer['max'] \
+            or node.left.value <= nodeContainer['min']:
+                return False
+            else:
+                newContainer = { 'node': node.left, 'min': nodeContainer['min'], 'max': node.value }
+                nodeContainers.append(newContainer)
+        if node.right:
+            if node.right.value <= node.value \
+            or node.right.value <= nodeContainer['min'] \
+            or node.right.value >= nodeContainer['max']:
+                return False
+            else: 
+                newContainer = { 'node': node.right, 'min': node.value, 'max': nodeContainer['max'] }
+                nodeContainers.append(newContainer)
 
     return True
 

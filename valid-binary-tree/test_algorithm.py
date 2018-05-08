@@ -3,11 +3,6 @@ import main as main
 
 
 class AlgorithmShould(unittest.TestCase):
-    def test_smoke(self):
-        root = main.BinaryTreeNode(0)
-        result = main.isValidBinarySearchTree(root)
-        self.assertTrue(result)
-
     def test_returnTrue_whenNodesBalance(self):
         root = main.BinaryTreeNode(10)
         left1 = root.insert_left(5)
@@ -26,7 +21,7 @@ class AlgorithmShould(unittest.TestCase):
         root = main.BinaryTreeNode(10)
         left1 = root.insert_left(5)
         left1.insert_left(1)
-        left1.insert_right(7)
+        left1.insert_right(11)
 
         right1 = root.insert_right(15)
         right1.insert_left(12)
