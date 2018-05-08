@@ -3,6 +3,25 @@ import main as main
 
 
 class AlgorithmShould(unittest.TestCase):
+    def test_throw_withOnlyRootNote(self):
+        root = main.BinaryTreeNode(1)
+        with self.assertRaises(Exception):
+            result = main.findSecondLargestElement(root)
+
+    def test_findWithOnly_OneLeftLeaf(self):
+        root = main.BinaryTreeNode(1)
+        root.insert_left(0)
+
+        result = main.findSecondLargestElement(root)
+        self.assertEqual(result, 0)
+
+    def test_findWithOnly_OneRightLeaf(self):
+        root = main.BinaryTreeNode(1)
+        root.insert_right(2)
+
+        result = main.findSecondLargestElement(root)
+        self.assertEqual(result, 1)
+
     def test_findWithOnly_RightBranches(self):
         root = main.BinaryTreeNode(10)
         right1 = root.insert_right(15)
@@ -20,20 +39,6 @@ class AlgorithmShould(unittest.TestCase):
 
         result = main.findSecondLargestElement(root)
         self.assertEquals(result, 9)
-
-    def test_findWithOnly_OneLeftLeaf(self):
-        root = main.BinaryTreeNode(1)
-        root.insert_left(0)
-
-        result = main.findSecondLargestElement(root)
-        self.assertEqual(result, 0)
-
-    def test_findWithOnly_OneRightLeaf(self):
-        root = main.BinaryTreeNode(1)
-        root.insert_right(2)
-
-        result = main.findSecondLargestElement(root)
-        self.assertEqual(result, 1)
 
 
 if __name__ == '__main__':

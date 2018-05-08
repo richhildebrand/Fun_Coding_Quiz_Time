@@ -1,6 +1,8 @@
 import sys
 
 def findSecondLargestElement(root):
+    if not root.left and not root.right: raise Exception("must have two nodes to find second highest value")
+
     highestValue = -sys.maxsize-1
     secondHighestValue = -sys.maxsize-1
     currentNode = root
