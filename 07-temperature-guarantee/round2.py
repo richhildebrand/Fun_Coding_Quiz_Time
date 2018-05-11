@@ -1,14 +1,17 @@
 import sys
 
 class TempTracker():
-    maxTemp = -sys.maxsize-1
-    minTemp = -sys.maxsize
+    def __init__(self):
+        self.maxTemp = -sys.maxsize-1
+        self.minTemp = sys.maxsize
 
-    sumOfTemps = 0
-    numberOfTemps = 0
-    meanTemp = None
+        self.sumOfTemps = 0
+        self.numberOfTemps = 0
+        self.meanTemp = None
 
-    modeTemp = None
+        self.maxTempOccurances = 0
+        self.seenTemps = {}
+        self.modeTemp = None
 
     def insert(self, newTemp):
         self.maxTemp = max(newTemp, self.maxTemp)
@@ -18,6 +21,13 @@ class TempTracker():
         self.numberOfTemps += 1
         self.meanTemp = self.sumOfTemps / self.numberOfTemps
 
+        newTempCount = self.seenTemps[newTemp] = self.seenTemps.get(newTemp, 0) + 1
+        print('newTemp:' + str(newTemp) + '   newTempCount:'+ str(newTempCount) + '   maxTempOccurances:'+ str(self.maxTempOccurances))
+        if newTempCount > self.maxTempOccurances:
+            self.modeTemp = [newTemp]
+            self.maxTempOccurances = newTempCount   
+        elif newTempCount == self.maxTempOccurances:
+            self.modeTemp.append(newTemp)
 
 
     def get_max(self):
