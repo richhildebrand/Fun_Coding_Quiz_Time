@@ -1,5 +1,5 @@
 import unittest
-import main as main
+import round2 as main
 
 
 class AlgorithmShould(unittest.TestCase):
