@@ -1,26 +1,26 @@
 def isSuperBalanced(rootNode):
     numberOfLeaves = 0
-    firstLeafValue = None
-    leaves = {}
+    firstDepth = None
+    depths = {}
 
-    nodes = [rootNode]
+    nodes = [(rootNode, 0)]
     while len(nodes):
-        node = nodes.pop()
+        node, depth = nodes.pop()
 
         isLeaf = not node.right and not node.left
         if isLeaf:
             print('leaf:' + str(node.value))
-            isNewLeaf = leaves.get(node.value, True) 
-            if isNewLeaf:
-                leaves[node.value] = False
+            isNewDepth = depths.get(depth, True)
+            if isNewDepth:
+                depths[depth] = False
                 numberOfLeaves += 1
-                firstLeafValue = firstLeafValue or node.value
+                firstDepth = firstDepth or depth
 
             if numberOfLeaves > 2: return False
-            if firstLeafValue and abs(firstLeafValue-node.value) > 1: return False
+            if firstDepth and abs(firstDepth-depth) > 1: return False
 
-        if node.right: nodes.append(node.right)
-        if node.left: nodes.append(node.left)
+        if node.right: nodes.append((node.right, depth+1))
+        if node.left: nodes.append((node.left, depth+1))
 
     return True
 
