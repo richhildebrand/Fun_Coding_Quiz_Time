@@ -1,4 +1,23 @@
+import sys
+
+def appendNode(nodes, nodeToAppend, minValue, maxValue):
+    newCollection = (nodeToAppend, minValue, maxValue)
+    nodes.append(newCollection)
+    return
+
 def isValidBinarySearchTree(rootNode):
+
+    nodes = [(rootNode, -sys.maxsize-1, sys.maxsize)]
+    while len(nodes):
+        node, minValue, maxValue = nodes.pop()
+        if minValue > node.value or node.value > maxValue: return False
+        print('minValue:' + str(minValue) + '   node.value:' + str(node.value) + '   maxValue:' + str(maxValue))
+
+        if node.right:
+            appendNode(nodes, node.right, node.value, maxValue)
+        if node.left:
+            appendNode(nodes, node.left, minValue, node.value)
+
     return True
 
 
