@@ -3,7 +3,6 @@ import sys
 def appendNode(nodes, nodeToAppend, minValue, maxValue):
     newCollection = (nodeToAppend, minValue, maxValue)
     nodes.append(newCollection)
-    return
 
 def isValidBinarySearchTree(rootNode):
 
