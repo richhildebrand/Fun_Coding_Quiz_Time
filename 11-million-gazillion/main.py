@@ -9,5 +9,12 @@ class Crawler(object):
             nestedDictionaries[character] = nestedDictionaries.get(character, {})
             nestedDictionaries = nestedDictionaries[character]
 
-    def trimWWW(self, site):
-        return site[4:]
+    def hasSite(self, site):
+        try: 
+            nestedDictionaries = self.visited
+            for character in site:
+                nestedDictionaries = nestedDictionaries[character]
+
+            if nestedDictionaries['*']: return True
+
+        except: return False
