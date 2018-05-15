@@ -9,6 +9,8 @@ class Crawler(object):
             nestedDictionaries[character] = nestedDictionaries.get(character, {})
             nestedDictionaries = nestedDictionaries[character]
 
+        nestedDictionaries['*'] = True
+
     def hasSite(self, site):
         try: 
             nestedDictionaries = self.visited
