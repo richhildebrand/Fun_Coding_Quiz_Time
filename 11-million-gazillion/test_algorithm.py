@@ -5,9 +5,9 @@ import main
 class AlgorithmShould(unittest.TestCase):
     def test_storeGoogle(self):
         crawler = main.Crawler()
-        crawler.addSite('www.google.com')
+        crawler.addSite('123')
 
-        expected = { 'www.': { 'google.com': None } }
+        expected = { '1': { '2': { '3': {} } } }
         self.assertDictEqual(expected, crawler.visited)
 
 
