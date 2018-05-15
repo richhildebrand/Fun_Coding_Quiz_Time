@@ -3,9 +3,12 @@ import main
 
 
 class AlgorithmShould(unittest.TestCase):
-    def test_smoke(self):
-        result = main.gettingStarted()
-        self.assertTrue(result)
+    def test_storeGoogle(self):
+        crawler = main.Crawler()
+        crawler.addSite('www.google.com')
+
+        expected = { 'www.google.com': 'www.google.com' }
+        self.assertDictEqual(expected, crawler.visited)
 
 
 if __name__ == '__main__':
