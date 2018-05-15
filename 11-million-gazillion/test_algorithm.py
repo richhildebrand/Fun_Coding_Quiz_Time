@@ -3,19 +3,19 @@ import main
 
 
 class AlgorithmShould(unittest.TestCase):
-    def test_storeSite(self):
-        crawler = main.Crawler()
-        crawler.addSite('123')
+    def setUp(self):
+        self.crawler = main.Crawler()
 
+    def test_storeSite(self):
+        self.crawler.addSite('123')
         expected = { '1': { '2': { '3': {'*': True } } } }
-        self.assertDictEqual(expected, crawler.visited)
+        self.assertDictEqual(expected, self.crawler.visited)
 
     def test_storeManySites(self):
-        crawler = main.Crawler()
-        crawler.addSite('123')
-        crawler.addSite('12345')
-        crawler.addSite('abc')
-        crawler.addSite('axyz')
+        self.crawler.addSite('123')
+        self.crawler.addSite('12345')
+        self.crawler.addSite('abc')
+        self.crawler.addSite('axyz')
 
 
         expected = \
@@ -31,31 +31,26 @@ class AlgorithmShould(unittest.TestCase):
                     'x':{ 'y': {'z': {'*': True } } }
                 }
         }
-        self.assertDictEqual(expected, crawler.visited)
-        self.assertTrue(crawler.hasSite('123'))
-        self.assertTrue(crawler.hasSite('12345'))
-        self.assertTrue(crawler.hasSite('abc'))
-        self.assertTrue(crawler.hasSite('axyz'))
+
+        self.assertDictEqual(expected, self.crawler.visited)
+        self.assertTrue(self.crawler.hasSite('123'))
+        self.assertTrue(self.crawler.hasSite('12345'))
+        self.assertTrue(self.crawler.hasSite('abc'))
+        self.assertTrue(self.crawler.hasSite('axyz'))
 
     def test_knowIfVisited(self):
-        crawler = main.Crawler()
-        crawler.addSite('123')
-
-        hasVisited = crawler.hasSite('123')
+        self.crawler.addSite('123')
+        hasVisited = self.crawler.hasSite('123')
         self.assertTrue(hasVisited)
 
     def test_knowIfNotVisisted_BecauseTooLong(self):
-        crawler = main.Crawler()
-        crawler.addSite('123')
-        
-        hasVisited = crawler.hasSite('1234')
+        self.crawler.addSite('123')
+        hasVisited = self.crawler.hasSite('1234')
         self.assertFalse(hasVisited)
     
     def test_knowIfNotVisisted_becauseTooShort(self):
-        crawler = main.Crawler()
-        crawler.addSite('123')
-
-        hasVisited = crawler.hasSite('12')
+        self.crawler.addSite('123')
+        hasVisited = self.crawler.hasSite('12')
         self.assertFalse(hasVisited)
 
 
