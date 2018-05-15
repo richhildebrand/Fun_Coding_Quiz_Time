@@ -7,7 +7,7 @@ class AlgorithmShould(unittest.TestCase):
         crawler = main.Crawler()
         crawler.addSite('www.google.com')
 
-        expected = { 'www.google.com': 'www.google.com' }
+        expected = { 'www.': { 'google.com': None } }
         self.assertDictEqual(expected, crawler.visited)
 
 
