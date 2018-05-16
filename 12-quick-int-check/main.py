@@ -1,14 +1,17 @@
 def getNumberOfSteps(numbers, numberToFind):
     maxIndex = len(numbers)
-    minIndex = 0
+    minIndex = -1
 
     stepCount = 0
-    while maxIndex != minIndex:
-        print('maxIndex:' + str(maxIndex) + '   minIndex:' + str(minIndex))
+    while minIndex + 1 < maxIndex:
         stepCount += 1
-        midPoint = (minIndex + maxIndex) // 2
-        print('midPoint:' + str(midPoint))
+        print('maxIndex:' + str(maxIndex) + '   minIndex:' + str(minIndex))
+        
+        distance = maxIndex - minIndex
+        halfDistance = distance // 2
+        midPoint = halfDistance + minIndex
         numberToCheck = numbers[midPoint]
+        print('midPoint:' + str(midPoint))
         print('numberToCheck:' + str(numberToCheck))
 
         if numberToCheck == numberToFind: return stepCount
@@ -16,4 +19,4 @@ def getNumberOfSteps(numbers, numberToFind):
         elif numberToFind < numberToCheck: maxIndex = midPoint 
 
 
-    return -1
+    return stepCount
