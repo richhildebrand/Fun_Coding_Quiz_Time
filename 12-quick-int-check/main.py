@@ -1,2 +1,2 @@
-def gettingStarted():
-    return True
+def getNumberOfSteps(numbers, numberToFind):
+    return -1
