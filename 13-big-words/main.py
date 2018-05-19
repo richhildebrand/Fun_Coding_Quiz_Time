@@ -33,6 +33,10 @@ def find_rotation_point(ascWords):
         elif first_word_is_first_alphabetically(word, first_word):
             max_index = mid_point
 
-        if min_index + 1 == max_index: return (max_index, step_count)
+        if min_index + 1 == max_index: 
+            if first_word_is_first_alphabetically(first_word, ascWords[max_index]):
+                return (0, step_count)
+            else:
+                return (max_index, step_count)
 
     return (mid_point, step_count)
