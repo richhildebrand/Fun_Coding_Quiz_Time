@@ -8,7 +8,7 @@ class AlgorithmShould(unittest.TestCase):
         word_list = ['ccc', 'aaa', 'bbb']
         rotation_point_index, steps_to_find_point = main.find_rotation_point(word_list)
         self.assertEqual(rotation_point_index, 1)
-        self.assertEqual(steps_to_find_point, 2)
+        self.assertEqual(steps_to_find_point, 1)
 
 
     ###compare words
