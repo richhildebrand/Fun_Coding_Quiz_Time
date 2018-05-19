@@ -1,5 +1,12 @@
-def steps_to_rotation_point(ascDictionary):
-    return 0
+def find_rotation_point(ascWords):
+    list_size = len(ascWords)
+    min_idex = -1
+    max_index = list_size
+
+
+
+
+    return (0, 0)
 
 def first_word_is_first_alphabetically(first_word, second_word):
     first_word_letter_count = len(first_word)
