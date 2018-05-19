@@ -25,7 +25,8 @@ def find_rotation_point(ascWords):
     while min_index < max_index:
         step_count += 1
         difference = max_index - min_index
-        mid_point = (difference + min_index) // 2
+        mid_point = (difference // 2) + min_index
+        print('min_index:' + str(min_index) + '   mid_point:' + str(mid_point), '   max_index:' + str(max_index))
 
         word = ascWords[mid_point]
         if first_word_is_first_alphabetically(first_word, word):

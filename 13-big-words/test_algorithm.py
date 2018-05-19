@@ -22,6 +22,18 @@ class AlgorithmShould(unittest.TestCase):
         self.assertEqual(rotation_point_index, 2)
         self.assertEqual(steps_to_find_point, 1)
 
+    def test_find_rotation_point_second_from_last(self):
+        word_list = ['f', 'g', 'h', 'i', 'j', 'a', 'b']
+        rotation_point_index, steps_to_find_point = main.find_rotation_point(word_list)
+        self.assertEqual(rotation_point_index, 5)
+        self.assertEqual(steps_to_find_point, 3)
+
+    def test_find_rotation_point_second_from_start(self):
+        word_list = ['g', 'a', 'b', 'c', 'd', 'e', 'f']
+        rotation_point_index, steps_to_find_point = main.find_rotation_point(word_list)
+        self.assertEqual(rotation_point_index, 1)
+        self.assertEqual(steps_to_find_point, 2)
+
     ###compare words
     def test_a_should_come_before_b(self):
         firstWordIsFirst = main.first_word_is_first_alphabetically('a', 'b')
