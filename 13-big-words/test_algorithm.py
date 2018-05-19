@@ -19,6 +19,14 @@ class AlgorithmShould(unittest.TestCase):
         firstWordIsFirst = main.first_word_is_first_alphabetically('ab', 'aa')
         self.assertFalse(firstWordIsFirst)
 
+    def test_aa_should_come_before_aaa(self):
+        firstWordIsFirst = main.first_word_is_first_alphabetically('aa', 'aaa')
+        self.assertTrue(firstWordIsFirst)
+
+    def test_aaa_should_not_come_before_aa(self):
+        firstWordIsFirst = main.first_word_is_first_alphabetically('aaa', 'aa')
+        self.assertFalse(firstWordIsFirst)
+
 
 
 if __name__ == '__main__':

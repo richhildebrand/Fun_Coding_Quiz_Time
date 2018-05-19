@@ -15,4 +15,4 @@ def first_word_is_first_alphabetically(first_word, second_word):
 
         return first_word[index] < second_word[index]
 
-    raise Exception('woops!')
+    return first_word_letter_count < second_word_letter_count
