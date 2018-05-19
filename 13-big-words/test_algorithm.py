@@ -13,7 +13,13 @@ class AlgorithmShould(unittest.TestCase):
     def test_find_rotation_point_at_start(self):
         word_list = ['aaa', 'bbb', 'ccc']
         rotation_point_index, steps_to_find_point = main.find_rotation_point(word_list)
-        self.assertEqual(rotation_point_index, 1)
+        self.assertEqual(rotation_point_index, 0)
+        self.assertEqual(steps_to_find_point, 1)
+
+    def test_find_rotation_point_at_end(self):
+        word_list = ['bbb', 'ccc', 'aaa']
+        rotation_point_index, steps_to_find_point = main.find_rotation_point(word_list)
+        self.assertEqual(rotation_point_index, 2)
         self.assertEqual(steps_to_find_point, 1)
 
     ###compare words
