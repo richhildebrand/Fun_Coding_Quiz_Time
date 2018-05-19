@@ -16,23 +16,21 @@ def first_word_is_first_alphabetically(first_word, second_word):
 
 
 def find_rotation_point(ascWords):
-    list_size = len(ascWords)
+    first_word = ascWords[0]
     min_index = 0
-    max_index = list_size - 1
+    max_index = len(ascWords) - 1
 
     step_count = 0
+    mid_point = None
     while min_index + 1 < max_index:
         step_count += 1
         difference = max_index - min_index
         mid_point = (difference + min_index) // 2
 
-        word_above = ascWords[mid_point - 1]
         word = ascWords[mid_point]
-        word_below = ascWords[mid_point + 1]
+        if first_word_is_first_alphabetically(first_word, word):
+            min_index = mid_point
+        elif first_word_is_first_alphabetically(word, first_word):
+            max_index = mid_point
 
-        if first_word_is_first_alphabetically(word, word_above) \
-        and first_word_is_first_alphabetically(word, word_below):
-            return (mid_point, step_count)
-
-
-    return (0, 0)
+    return (mid_point, step_count)
