@@ -1,10 +1,9 @@
 def two_movies_sum_length(flight_length, movie_lengths):
-    number_of_movies = len(movie_lengths)
+    movie_times_available = set()
 
-    for length_index in range(0, number_of_movies):
-        length = movie_lengths[length_index]
-        for next_length_index in range(length_index+1, number_of_movies):
-            next_length = movie_lengths[next_length_index]
-            if (length + next_length) == flight_length: return True
+    for length in movie_lengths:
+        matching_value = flight_length - length
+        if matching_value in movie_times_available: return True
+        else: movie_times_available.add(length)
 
     return False
