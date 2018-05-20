@@ -10,9 +10,23 @@ class AlgorithmShould(unittest.TestCase):
         result = main.two_movies_sum_length(flight_length, movie_lenghts)
         self.assertTrue(result)
 
+    def test_find_valid_sums_in_large_list(self):
+        flight_length = 5
+        movie_lenghts = [3, 7, 6, 11, 2, 13, 22]
+
+        result = main.two_movies_sum_length(flight_length, movie_lenghts)
+        self.assertTrue(result)
+
     def test_not_find_valid_sums(self):
         flight_length = 5
         movie_lenghts = [1, 2]
+
+        result = main.two_movies_sum_length(flight_length, movie_lenghts)
+        self.assertFalse(result)
+
+    def test_not_find_valid_sums_in_large_list(self):
+        flight_length = 5
+        movie_lenghts = [1, 2, 6, 7, 11, 15, 19]
 
         result = main.two_movies_sum_length(flight_length, movie_lenghts)
         self.assertFalse(result)
