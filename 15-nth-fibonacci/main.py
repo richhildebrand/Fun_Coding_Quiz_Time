@@ -1,2 +1,2 @@
-def gettingStarted():
+def fib(n):
     return True
