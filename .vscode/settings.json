@@ -2,7 +2,7 @@
     "python.unitTest.unittestArgs": [
         "-v",
         "-s",
-        "./15-nth-fibonacci",
+        "./11-million-gazillion",
         "-p",
         "test_*.py"
     ],
