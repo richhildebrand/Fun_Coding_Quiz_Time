@@ -2,7 +2,7 @@
     "python.unitTest.unittestArgs": [
         "-v",
         "-s",
-        "./12-quick-int-check",
+        "./13-big-words",
         "-p",
         "test_*.py"
     ],
