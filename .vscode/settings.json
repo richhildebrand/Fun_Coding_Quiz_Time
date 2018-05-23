@@ -2,7 +2,7 @@
     "python.unitTest.unittestArgs": [
         "-v",
         "-s",
-        "./11-million-gazillion",
+        "./12-quick-int-check",
         "-p",
         "test_*.py"
     ],
