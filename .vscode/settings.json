@@ -2,7 +2,7 @@
     "python.unitTest.unittestArgs": [
         "-v",
         "-s",
-        "./13-big-words",
+        "./14-inflight-entertainment",
         "-p",
         "test_*.py"
     ],
