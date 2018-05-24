@@ -2,7 +2,7 @@
     "python.unitTest.unittestArgs": [
         "-v",
         "-s",
-        "./14-inflight-entertainment",
+        "./15-nth-fibonacci",
         "-p",
         "test_*.py"
     ],
