@@ -3,6 +3,14 @@ import round2 as main
 
 
 class AlgorithmShould(unittest.TestCase):
+    def test_allow_to_of_the_same_number(self):
+        flight_length = 5
+        movie_lenghts = [7, 2, 7, 5, 3]
+
+        result = main.two_movies_sum_length(flight_length, movie_lenghts)
+        self.assertTrue(result)
+
+
     def test_find_valid_sums(self):
         flight_length = 5
         movie_lenghts = [3, 2]
