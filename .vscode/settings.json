@@ -2,7 +2,7 @@
     "python.unitTest.unittestArgs": [
         "-v",
         "-s",
-        "./15-nth-fibonacci",
+        "./16-cake-theif",
         "-p",
         "test_*.py"
     ],
