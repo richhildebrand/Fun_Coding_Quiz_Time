@@ -4,8 +4,8 @@ While Queen Elizabeth has a *limited number of types of cake*, she has an *unlim
 
 Each type of cake has a weight and a value, stored in a tuple with two indices:
 
-0. An integer representing the **weight** of the cake in kilograms
-1. An integer representing the **monetary value** of the cake in British shillings
+0 -> An integer representing the **weight** of the cake in kilograms
+1 -> An integer representing the **monetary value** of the cake in British shillings
 
 For example:
 
@@ -25,6 +25,6 @@ For example:
     capacity    = 20
 
     # Returns 555 (6 of the middle type of cake and 1 of the last type of cake)
-    `max_duffel_bag_value(cake_tuples, capacity)`
+    max_duffel_bag_value(cake_tuples, capacity)
 
 **Weights and values may be any non-negative integer.** Yes, it's weird to think about cakes that weigh nothing or duffel bags that can't hold anything. But we're not just super mastermind criminals—we're also meticulous about keeping our algorithms flexible and comprehensive.
