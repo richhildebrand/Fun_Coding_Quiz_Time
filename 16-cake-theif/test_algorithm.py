@@ -19,6 +19,14 @@ class AlgorithmShould(unittest.TestCase):
 
         self.assertEqual(max_value, 120)
 
+    def test_should_buyOneCake(self):
+        cake_tuples = [(3, 40)]
+        capacity = 3
+
+        max_value = main.max_duffel_bag_value(cake_tuples, capacity)
+
+        self.assertEqual(max_value, 40)
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

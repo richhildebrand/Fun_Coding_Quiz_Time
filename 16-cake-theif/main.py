@@ -1,19 +1,26 @@
 def max_duffel_bag_value(cake_tuples, capacity):
 
-    number_of_cake_types = len(cake_tuples)
-    cake_tuples =   sorted(cake_tuples, key=lambda i: i[0]/i[1])
-    print(cake_tuples)
+    profits = {}
+    profits[0] = 0
+ 
+    for current_capacity in range(1, capacity+1):
+        max_profit_at_current_capacity = 0
 
-    profit = 0
-    cake_tuples_index = 0
-    filled_capacity = 0
-    while(filled_capacity < capacity and cake_tuples_index < number_of_cake_types):
-        weight_of_cake, value_of_cake = cake_tuples[cake_tuples_index]
+        for weight, value in cake_tuples:
+            if weight > current_capacity: continue
 
-        cakes_to_put_in_bag = (capacity - filled_capacity) // weight_of_cake
-        profit += cakes_to_put_in_bag * value_of_cake
-        filled_capacity += cakes_to_put_in_bag * weight_of_cake
+            remainder = current_capacity % weight
+            number_of_possible_cakes = current_capacity // weight
+            profit_from_cake = number_of_possible_cakes * value
 
-        cake_tuples_index += 1
+            total_profit_with_cake = profit_from_cake + profits[remainder]
+            print('new profit:' + str(total_profit_with_cake) + '   current max:' + str(max_profit_at_current_capacity))
+            if total_profit_with_cake > max_profit_at_current_capacity:
+                max_profit_at_current_capacity = total_profit_with_cake
 
-    return profit
+
+        print('capacity:' + str(current_capacity) + '   max to add:' + str(max_profit_at_current_capacity))
+        profits[current_capacity] = max_profit_at_current_capacity
+    
+
+    return profits[capacity]
