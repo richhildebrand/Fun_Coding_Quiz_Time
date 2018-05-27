@@ -1,2 +1,0 @@
-def gettingStarted():
-    return True
