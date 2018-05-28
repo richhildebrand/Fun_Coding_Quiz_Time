@@ -17,7 +17,12 @@ describe("Test method should", function() {
 
     it("click our first button", function() {
         attachListeners(_dom)
-        _dom.querySelector('btn-0' + btnNum).click();
+        _dom.querySelector('#btn-0').click();
+    });
+
+    it("click our first button", function() {
+        workingAttachListeners(_dom)
+        _dom.querySelector('#btn-0').click();
     });
 });
   
