@@ -1,11 +1,11 @@
 class MyQueue():
 
     def __init__(self):
-        stack_one = []
-        stack_two = []
+        self.in_stack = []
+        self.out_stack = []
 
     def enqueue(self, item):
-        return
+        return self.in_stack.append(item)
 
     def dequeue(self):
         steps = 0
