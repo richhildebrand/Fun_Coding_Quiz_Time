@@ -9,6 +9,7 @@ class MyQueue():
 
     def dequeue(self):
         steps = 0
+        if len(self.out_stack) != 0: return (self.out_stack.pop(), steps)
 
         while len(self.in_stack):
             steps += 1
