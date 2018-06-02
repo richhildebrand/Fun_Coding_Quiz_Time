@@ -39,6 +39,24 @@ class AlgorithmShould(unittest.TestCase):
         self.assertEqual(result, 2)
         self.assertEqual(steps, 0)
 
+    def test_work_with_complicated_test(self):
+        queue = main.MyQueue()
+        queue.enqueue(1)
+        queue.enqueue(2)
+        queue.enqueue(3)
+
+        queue.dequeue()
+        queue.enqueue(4)
+        queue.enqueue(5)
+        queue.dequeue()
+        queue.dequeue()
+        result, steps = queue.dequeue()
+
+
+        self.assertEqual(result, 4)
+        self.assertEqual(steps, 2)
+
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
