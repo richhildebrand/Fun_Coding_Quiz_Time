@@ -9,5 +9,13 @@ class MyQueue():
 
     def dequeue(self):
         steps = 0
-        return (0, steps)
+
+        while len(self.in_stack):
+            steps += 1
+
+            item = self.in_stack.pop()
+            self.out_stack.append(item)
+
+        first_item = self.out_stack.pop()
+        return (first_item, steps)
     
