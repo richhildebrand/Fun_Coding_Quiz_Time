@@ -30,3 +30,9 @@ class MaxStack(Stack):
 
     def get_max(self):
         return self.max_number_in_stack
+
+    def push(self, item):
+        if not self.max_number_in_stack or self.max_number_in_stack < item:
+            self.max_number_in_stack = item
+
+        Stack.push(self, item)

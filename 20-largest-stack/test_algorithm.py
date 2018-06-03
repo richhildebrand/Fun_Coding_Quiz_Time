@@ -8,5 +8,15 @@ class AlgorithmShould(unittest.TestCase):
         max_value = stack.get_max()
         self.assertEqual(max_value, None)
 
+    def test_find_max_when_we_do_not_pop(self):
+        stack = main.MaxStack()
+        stack.push(3)
+        stack.push(7)
+        stack.push(5)
+
+        max_value = stack.get_max()
+
+        self.assertEqual(max_value, 7)
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)
