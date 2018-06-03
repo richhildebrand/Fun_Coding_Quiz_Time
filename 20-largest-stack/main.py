@@ -35,7 +35,7 @@ class MaxStack(Stack):
 
     def push(self, item):
         max_number = self.get_max()
-        if not max_number or max_number < item:
+        if not max_number or max_number <= item:
             self.max_numbers_in_stack.append(item)
 
         Stack.push(self, item)

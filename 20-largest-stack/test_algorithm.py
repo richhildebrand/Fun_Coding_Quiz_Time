@@ -47,6 +47,24 @@ class AlgorithmShould(unittest.TestCase):
         max_value = stack.get_max()
         self.assertEqual(max_value, 2)
 
+    def test_allow_us_to_use_the_same_max_multiple_times(self):
+        stack = main.MaxStack()
+        stack.push(1)
+        stack.push(5)
+        stack.push(6)
+        stack.push(6)
+
+        max_value = stack.get_max()
+        self.assertEqual(max_value, 6)
+
+        stack.pop()
+        max_value = stack.get_max()
+        self.assertEqual(max_value, 6)
+
+        stack.pop()
+        max_value = stack.get_max()
+        self.assertEqual(max_value, 5)
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
