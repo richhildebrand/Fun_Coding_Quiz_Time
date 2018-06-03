@@ -36,3 +36,6 @@ class MaxStack(Stack):
             self.max_number_in_stack = item
 
         Stack.push(self, item)
+
+    def pop(self):
+        return Stack.pop(self)
