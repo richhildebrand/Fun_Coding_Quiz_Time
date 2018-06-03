@@ -41,4 +41,9 @@ class MaxStack(Stack):
         Stack.push(self, item)
 
     def pop(self):
-        return Stack.pop(self)
+        item = Stack.pop(self)
+
+        max_number = self.get_max()
+        if item == max_number: self.max_numbers_in_stack.pop()
+
+        return item

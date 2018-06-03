@@ -29,5 +29,24 @@ class AlgorithmShould(unittest.TestCase):
 
         self.assertEqual(result, 2)
 
+    def test_allow_us_to_pop_and_still_know_max(self):
+        stack = main.MaxStack()
+        stack.push(1)
+        stack.push(2)
+        stack.push(6)
+        stack.push(5)
+
+        max_value = stack.get_max()
+        self.assertEqual(max_value, 6)
+
+        stack.pop()
+        max_value = stack.get_max()
+        self.assertEqual(max_value, 6)
+
+        stack.pop()
+        max_value = stack.get_max()
+        self.assertEqual(max_value, 2)
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)
