@@ -26,14 +26,17 @@ class Stack(object):
 class MaxStack(Stack):
     def __init__(self):
         Stack.__init__(self)
-        self.max_number_in_stack = None
+        self.max_numbers_in_stack = []
 
     def get_max(self):
-        return self.max_number_in_stack
+        items_in_stack = len(self.max_numbers_in_stack)
+        if items_in_stack == 0: return None
+        return self.max_numbers_in_stack[items_in_stack -1]
 
     def push(self, item):
-        if not self.max_number_in_stack or self.max_number_in_stack < item:
-            self.max_number_in_stack = item
+        max_number = self.get_max()
+        if not max_number or max_number < item:
+            self.max_numbers_in_stack.append(item)
 
         Stack.push(self, item)
 
