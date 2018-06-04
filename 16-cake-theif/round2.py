@@ -5,6 +5,7 @@ def max_duffel_bag_value(cake_tuples, capacity):
         max_profits[current_capacity] = max_profits.get(current_capacity, 0)
 
         for weight, value in cake_tuples:
+            if weight == 0 and value > 0: return float('inf')
             if weight > current_capacity: continue
 
             remainder = current_capacity - weight
