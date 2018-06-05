@@ -1,5 +1,5 @@
 import unittest
-import main
+import round2 as main
 
 
 class AlgorithmShould(unittest.TestCase):
@@ -12,7 +12,7 @@ class AlgorithmShould(unittest.TestCase):
         result, steps = queue.dequeue()
 
         self.assertEqual(result, 1)
-        self.assertEqual(steps, 3)
+        self.assertEqual(steps, 2)
 
     def test_work_with_two_dequeues_in_a_row(self):
         queue = main.MyQueue()
@@ -54,7 +54,7 @@ class AlgorithmShould(unittest.TestCase):
 
 
         self.assertEqual(result, 4)
-        self.assertEqual(steps, 2)
+        self.assertEqual(steps, 1)
 
 
 
