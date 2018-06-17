@@ -34,8 +34,6 @@ class MaxStack(Stack):
         return self.maxes[len(self.maxes)-1]
 
     def push(self, item):
-        if len(self.maxes) == 0 \
-        or self.get_max() <= item:
             self.maxes.append(item)
 
         super().push(item)
