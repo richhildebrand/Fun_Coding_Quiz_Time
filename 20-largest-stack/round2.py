@@ -38,3 +38,9 @@ class MaxStack(Stack):
             self.maxes.append(item)
 
         super().push(item)
+    
+    def pop(self):
+        item = super().pop()
+        if item == self.get_max(): self.maxes.pop()
+
+        return item
