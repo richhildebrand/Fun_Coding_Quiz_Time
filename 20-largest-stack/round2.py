@@ -24,4 +24,10 @@ class Stack(object):
         return self.items[-1]
 
 class MaxStack(Stack):
-    pass
+    
+    def __init__(self): 
+        self.max = 0
+        self.items = [];
+
+    def get_max(self): 
+        return self.max
