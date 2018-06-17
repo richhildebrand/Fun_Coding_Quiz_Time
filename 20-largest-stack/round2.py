@@ -27,7 +27,7 @@ class MaxStack(Stack):
     
     def __init__(self): 
         self.max = 0
-        self.items = [];
+        super().__init__()
 
     def get_max(self): 
-        return self.max
+        return self.max 
