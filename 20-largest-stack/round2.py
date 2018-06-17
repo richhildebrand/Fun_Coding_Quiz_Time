@@ -29,7 +29,8 @@ class MaxStack(Stack):
         self.maxes = []
         super().__init__()
 
-    def get_max(self): 
+    def get_max(self):
+        if len(self.maxes) == 0: return None
         return self.maxes[len(self.maxes)-1]
 
     def push(self, item):
